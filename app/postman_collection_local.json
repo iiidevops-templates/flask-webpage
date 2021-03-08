@@ -30,11 +30,7 @@
 					"raw": "http://web:5000",
 					"host": [
 						"http://web:5000"
-					],
-                    "path": [
-						"about",
-                        ""
-                    ]
+					]
 				}
 			},
 			"response": []
