@@ -18,7 +18,7 @@ docker-flask-webpage-1_postman_collection_1   newman run /etc/postman/po ...   E
 docker-flask-webpage-1_web_1                  /bin/sh -c python3 -u main.py    Up       0.0.0.0:49196->5000/tcp
 ```
 訊息內有顯示`0.0.0.0:49196`，則代表可透過 http://localhost:49196 或是 http://您主機IP:49196 來連線到本地部屬的網站
-## 查看與追蹤部屬的網頁伺服器紀錄Log `docker-compose logs -f web`
+### 查看與追蹤部屬的網頁伺服器紀錄Log `docker-compose logs -f web`
 可用`Ctrl+V`來離開Log追蹤
 ```
 web_1                 |  * Serving Flask app "main" (lazy loading)
