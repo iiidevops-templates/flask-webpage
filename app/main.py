@@ -1,14 +1,16 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "This is homepage !"
+    # 使用template資料夾內的home.html當作首頁
+    return render_template("home.html")
     
-@app.route("/salvador")
-def salvador():
-    return "Hello, Salvador"
+@app.route("/about")
+def about():
+    # 使用template資料夾內的about.html當作首頁
+    return render_template("about.html")
     
 if __name__ == "__main__":
     app.run(debug=True)
