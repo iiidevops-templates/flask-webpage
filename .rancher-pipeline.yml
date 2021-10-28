@@ -19,7 +19,6 @@ stages:
       include:
       - master
       - develop
-
 - name: Test--Checkmarx source code scan
   iiidevops: checkmarx
   steps:
@@ -40,7 +39,6 @@ stages:
       include:
       - master
       - develop
-
 - name: Deploy--Set Web environment variables
   iiidevops: deployed-environments
   steps:
@@ -56,16 +54,15 @@ stages:
       shellScript: rancher login ${rancher_url} -t ${rancher_api_token} --skip-verify
         && rancher kubectl delete configmap -n ${CICD_GIT_REPO_NAME} ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-env
         --ignore-not-found=true && perl iiidevops/bin/chk-app-env.pl ${CICD_GIT_BRANCH}
-        && rancher kubectl create configmap -n ${CICD_GIT_REPO_NAME}
-        ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-env --from-env-file=iiidevops/app.env
-        && rancher kubectl annotate configmap -n ${CICD_GIT_REPO_NAME} ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-env
-        iiidevops.org/project_name=${CICD_GIT_REPO_NAME} iiidevops.org/branch=${CICD_GIT_BRANCH}
-        iiidevops.org/commit_id=${CICD_GIT_COMMIT} iiidevops.org/type=appenv
+        && rancher kubectl create configmap -n ${CICD_GIT_REPO_NAME} ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-env
+        --from-env-file=iiidevops/app.env && rancher kubectl annotate configmap -n
+        ${CICD_GIT_REPO_NAME} ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-env iiidevops.org/project_name=${CICD_GIT_REPO_NAME}
+        iiidevops.org/branch=${CICD_GIT_BRANCH} iiidevops.org/commit_id=${CICD_GIT_COMMIT}
+        iiidevops.org/type=appenv
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Build--Build and push docker image
   iiidevops: deployed-environments
   steps:
@@ -84,8 +81,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Deploy--Web
   iiidevops: deployed-environments
   steps:
@@ -107,8 +103,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Deploy--Wait Web deployment
   iiidevops: deployed-environments
   steps:
@@ -130,8 +125,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Test--ZAP
   iiidevops: zap
   steps:
@@ -152,8 +146,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Test--WebInspect
   iiidevops: webinspect
   steps:
@@ -173,8 +166,7 @@ stages:
   when:
     branch:
       include:
-      - master
-
+      - skip
 - name: Test--Postman
   iiidevops: postman
   steps:
@@ -196,7 +188,6 @@ stages:
     branch:
       include:
       - master
-
 - name: Test--SideeX
   iiidevops: sideex
   steps:
@@ -218,4 +209,3 @@ stages:
     branch:
       include:
       - master
-
