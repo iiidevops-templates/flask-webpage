@@ -1,6 +1,6 @@
 FROM dockerhub/library/python:3.8
 
-RUN pip install Flask==1.1.2
+RUN pip install Flask==2.0.3
 
 COPY app /app
 WORKDIR /app
