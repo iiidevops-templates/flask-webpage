@@ -26,11 +26,13 @@ stages:
       catalogTemplate: cattle-global-data:iii-dev-charts3-scan-sonarqube
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-sq
       targetNamespace: ${CICD_GIT_REPO_NAME}
-      version: 0.2.3
+      version: 0.2.4
   when:
     branch:
       include:
+      - master
       - develop
+
 - name: Test--Checkmarx source code scan
   iiidevops: checkmarx
   steps:
@@ -50,6 +52,7 @@ stages:
     branch:
       include:
       - skip-master
+
 - name: Deploy--Set Web environment variables
   iiidevops: deployed-environments
   steps:
@@ -74,7 +77,7 @@ stages:
     branch:
       include:
       - skip-master
-      - master
+
 - name: Build--Build and push docker image
   iiidevops: deployed-environments
   steps:
@@ -94,7 +97,7 @@ stages:
     branch:
       include:
       - skip-master
-      - master
+
 - name: Deploy--Web
   iiidevops: deployed-environments
   steps:
@@ -119,7 +122,7 @@ stages:
     branch:
       include:
       - skip-master
-      - master
+
 - name: Deploy--Wait Web deployment
   iiidevops: deployed-environments
   steps:
@@ -142,7 +145,7 @@ stages:
     branch:
       include:
       - skip-master
-      - master
+
 - name: Test--ZAP
   iiidevops: zap
   steps:
@@ -164,6 +167,7 @@ stages:
     branch:
       include:
       - skip-master
+
 - name: Test--WebInspect
   iiidevops: webinspect
   steps:
@@ -184,6 +188,7 @@ stages:
     branch:
       include:
       - skip-master
+
 - name: Test--Postman
   iiidevops: postman
   steps:
@@ -200,11 +205,12 @@ stages:
       catalogTemplate: cattle-global-data:iii-dev-charts3-test-postman
       name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-pm
       targetNamespace: ${CICD_GIT_REPO_NAME}
-      version: 0.3.2
+      version: 0.3.3
   when:
     branch:
       include:
       - skip-master
+
 - name: Test--SideeX
   iiidevops: sideex
   steps:
@@ -226,3 +232,4 @@ stages:
     branch:
       include:
       - skip-master
+
