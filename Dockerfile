@@ -1,4 +1,4 @@
-FROM dockerhub/library/python:3.8.13
+FROM dockerhub/library/python:3.8
 
 RUN pip install Flask==2.0.3
 
