@@ -13,9 +13,8 @@ ENV 環境變數名稱3 值3
 ```
 
 ## iiidevops
-* 專案內`.rancher-pipeline.yml`請勿更動，產品系統設計上不支援pipeline修改
-* 目前系統pipeline限制，因此寫的服務請一定要在port:`5000`，資料庫類型無法更改。
-* `iiidevops`資料夾內`pipeline_settings.json`請勿更動
+* 專案內`.rancher-pipeline.yml`如不熟悉 pipeline yaml 語法請先不要自行更動
+* `iiidevops`資料夾內`pipeline_settings.json`為範本來源定義, 如需要請勿更動
 * `postman`資料夾內則是您在devops管理網頁上的Postman-collection(newman)自動測試檔案，devops系統會以`postman`資料夾內檔案做自動測試
 
 ## 教學參考來源:
