@@ -1,6 +1,6 @@
 {
   "name": "Python-Flask",
-  "description": "Flask / Python 3.8 <a class='el-link el-link--primary' href='https://github.com/iiidevops-templates/flask-webpage-with-men/blob/master/README.md' target='_blank'>webpage 範本說明</a><hr size=1 />  <li><b>v1.17</b>:增加掃描 docker Image 功能, Web chart 支援掛載 Volume  <li><b>v1.16</b>:SonarQube均改用 helm chart 架構, Postman POD 名稱加上 git hash  <li><b>v1.15</b>:支援Web部署上傳檔案大小設定(預設1MB)",
+  "description": "Flask / Python 3.8 <a class='el-link el-link--primary' href='https://github.com/iiidevops-templates/flask-webpage-with-men/blob/master/README.md' target='_blank'>webpage 範本說明</a><hr /><ul>  <li><strong>v1.26</strong>:增加定義 SonarQube 與 Checkmarx 黑白名單功能</li>  <li><strong>v1.20</strong>:整合 rancher-cli 與 deployment-wait 至 iiidevops-cli</li>  <li><strong>v1.19</strong>:增加自動計算原始碼行數功能</li></ul>",
   "arguments": [
   ]
 }
