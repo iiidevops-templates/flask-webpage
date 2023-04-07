@@ -6,4 +6,4 @@ COPY app /app
 WORKDIR /app
 
 EXPOSE 5000
-CMD python3 -u main.py
+CMD python3 -u app.py
