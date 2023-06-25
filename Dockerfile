@@ -1,4 +1,4 @@
-FROM dockerhub/library/python:3.8
+FROM dockerhub/library/python:3.8.16-slim
 
 RUN pip install Flask==2.0.3 flask-wtf
 
